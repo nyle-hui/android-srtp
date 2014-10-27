@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:background="#ffffff"
+              android:id="@+id/item_process"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout android:orientation="vertical" android:background="#ffffff" android:layout_marginBottom="9dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageView android:background="#e5e5e4" android:layout_marginLeft="30dp" android:layout_marginRight="30dp" android:layout_width="wrap_content" android:layout_height="1dp"/>
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="90dp">
+            <ImageView android:layout_marginLeft="20dp" android:layout_centerVertical="true" android:background="@drawable/icon_avater" android:layout_width="60dp" android:layout_height="60dp"/>
+            <RelativeLayout android:layout_marginLeft="104dp" android:layout_centerVertical="true" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:id="@+id/type" android:text="短信悬浮窗" style="@style/waybill_text" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <LinearLayout android:layout_width="wrap_content"  android:layout_marginTop="25dp"  android:orientation="horizontal" android:layout_height="wrap_content">
+                    <TextView android:textColor="#53AB3A" android:text="CPU:" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <TextView android:id="@+id/cpu" android:textColor="#53AB3A" android:text="13%" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <TextView android:textColor="#53AB3A" android:layout_marginLeft="10dp" android:text="Mem:" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <TextView android:id="@+id/mem" android:textColor="#53AB3A" android:text="23K" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+        <ImageView android:background="#e5e5e4" android:layout_marginLeft="30dp" android:layout_marginRight="30dp" android:layout_width="match_parent" android:layout_height="1px"/>
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:id="@+id/msg1" android:visibility="gone" android:text="" style="@style/waybill_text" android:gravity="center_vertical" android:layout_marginLeft="30dp" android:layout_marginRight="30dp" android:layout_weight="1" android:layout_width="match_parent" android:layout_height="28dp"/>
+            <TextView android:id="@+id/msg2" android:visibility="gone" android:text="" style="@style/waybill_text" android:gravity="center_vertical" android:layout_marginLeft="30dp" android:layout_marginRight="30dp" android:layout_weight="1" android:layout_width="match_parent" android:layout_height="28dp"/>
+        </LinearLayout>
+        <ImageView android:background="#e5e5e4" android:layout_marginLeft="30dp" android:layout_marginRight="30dp" android:layout_width="match_parent" android:layout_height="1dp"/>
+    </LinearLayout>
+</LinearLayout>

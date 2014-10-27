@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.nyle.demo.srtp_nyle_xyh.R;
@@ -19,31 +18,33 @@ import java.util.List;
  */
 public class ListAdapter extends BaseAdapter
 {
-    public final static int STATUS_SEND = 0;
+    public final static int STATUS_PROCESS = 0;
     public final static int STATUS_RECEIVE = 1;
 
     Context context;
-    List<ApplicationInfo> sendWaybillList;
+    List<ApplicationInfo> processList;
     List<ApplicationInfo> receiverWaybillList;
     LayoutInflater inflater;
-    int status = 1;
+    int status = 0;
 
     public ListAdapter(Context context)
     {
         this.context = context;
         inflater = LayoutInflater.from(context);
-        sendWaybillList = new ArrayList<ApplicationInfo>();
+        processList = new ArrayList<ApplicationInfo>();
         receiverWaybillList = new ArrayList<ApplicationInfo>();
     }
 
-    public void setSendWaybillList(List<ApplicationInfo> sendWaybillList)
+    public void setProcessList(List<ApplicationInfo> processList)
     {
-        this.sendWaybillList = sendWaybillList;
+        this.processList = processList;
+        notifyDataSetChanged();
     }
 
     public void setReceiverWaybillList(List<ApplicationInfo> receiverWaybillList)
     {
         this.receiverWaybillList = receiverWaybillList;
+        notifyDataSetChanged();
     }
 
     public void setWaybillListStatus(int status)
@@ -56,7 +57,7 @@ public class ListAdapter extends BaseAdapter
     public int getCount()
     {
         if (status == STATUS_RECEIVE) return receiverWaybillList.size();
-        else if (status == STATUS_SEND) return sendWaybillList.size();
+        else if (status == STATUS_PROCESS) return processList.size();
         else return 0;
     }
 
@@ -64,7 +65,7 @@ public class ListAdapter extends BaseAdapter
     public Object getItem(int i)
     {
         if (status == STATUS_RECEIVE) return receiverWaybillList.get(i);
-        else if (status == STATUS_SEND) return sendWaybillList.get(i);
+        else if (status == STATUS_PROCESS) return processList.get(i);
         else return null;
     }
 
@@ -81,17 +82,35 @@ public class ListAdapter extends BaseAdapter
         {
 //           return renderReceiverListItem(i, view, viewGroup);
         }
-        else if (status == STATUS_SEND)
+        else if (status == STATUS_PROCESS)
         {
-//            return renderSendListItem(i, view, viewGroup);
+              return renderProcessListItem(i, view, viewGroup);
         }
 
         return null;
     }
 
+    private View renderProcessListItem(int i, View view, ViewGroup viewGroup)
+    {
+        ApplicationInfo applicationInfo = processList.get(i);
+        if (applicationInfo == null) return null;
+
+        if (view == null || view.getId() != R.id.item_process)
+        {
+            view = inflater.inflate(R.layout.item_process, viewGroup, false);
+        }
+
+        TextView name = (TextView) view.findViewById(R.id.type);
+
+
+        if(applicationInfo.loadLabel(context.getPackageManager()).toString() != null) name.setText(applicationInfo.loadLabel(context.getPackageManager()).toString());
+
+        return view;
+    }
+
 //    private View renderSendListItem(int i, View view, ViewGroup viewGroup)
 //    {
-//        ApplicationInfo waybill = sendWaybillList.get(i);
+//        ApplicationInfo waybill = processList.get(i);
 //        if (waybill == null) return null;
 //
 //        if (view == null || view.getId() != R.id.item_send_waybill)
