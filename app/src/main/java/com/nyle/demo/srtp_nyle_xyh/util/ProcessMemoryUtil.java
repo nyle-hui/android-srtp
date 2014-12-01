@@ -1,4 +1,4 @@
-package Util;
+package com.nyle.demo.srtp_nyle_xyh.util;
 
 import android.util.Log;
 
@@ -12,17 +12,20 @@ import java.util.List;
  */
 public class ProcessMemoryUtil
 {
-    private static final int INDEX_FIRST = -1;
-    private static final int INDEX_PID = INDEX_FIRST + 1;
-    private static final int INDEX_CPU = INDEX_FIRST + 2;
-    private static final int INDEX_STAT = INDEX_FIRST + 3;
-    private static final int INDEX_THR = INDEX_FIRST + 4;
-    private static final int INDEX_VSS = INDEX_FIRST + 5;
-    private static final int INDEX_RSS = INDEX_FIRST + 6;
-    private static final int INDEX_PCY = INDEX_FIRST + 7;
-    private static final int INDEX_UID = INDEX_FIRST + 8;
-    private static final int INDEX_NAME = INDEX_FIRST + 9;
-    private static final int Length_ProcStat = 9;
+    public static final int INDEX_FIRST = -1;
+    public static final int INDEX_PID = INDEX_FIRST + 1;
+    public static final int INDEX_CPU = INDEX_FIRST + 3;
+    public static final int INDEX_STAT = INDEX_FIRST + 3;
+    public static final int INDEX_THR = INDEX_FIRST + 4;
+    public static final int INDEX_VSS = INDEX_FIRST + 5;
+    public static final int INDEX_RSS = INDEX_FIRST + 7;
+    public static final int INDEX_PCY = INDEX_FIRST + 7;
+    public static final int INDEX_UID = INDEX_FIRST + 8;
+    public static final int INDEX_NAME = INDEX_FIRST + 10;
+    public static final int Length_ProcStat = 9;
+
+//    "CPU:" + item[INDEX_CPU]
+//    "  Mem:" + item[INDEX_RSS]
 
     private List<String[]> PMUList = null;
 
@@ -30,13 +33,19 @@ public class ProcessMemoryUtil
 
     }
 
+    public List<String[]> getPMUList()
+    {
+        return PMUList;
+    }
+
     private String getProcessRunningInfo() {
         Log.i("fetch_process_info", "start. . . . ");
         String result = null;
         CMDExecute cmdexe = new CMDExecute();
         try {
-            String[] args = {"/system/bin/top", "-n", "1"};
+            String[] args = {"/system/bin/top", "-n", "1" ,"-s", "rss"};
             result = cmdexe.run(args, "/system/bin/");
+            Log.i("nyle", "\n" + result);
         } catch (IOException ex) {
             Log.i("fetch_process_info", "ex=" + ex.toString());
         }
@@ -53,15 +62,18 @@ public class ProcessMemoryUtil
 
         for (int i = 0; i < rows.length; i++) {
             tempString = rows[i];
-            if (tempString.indexOf("PID") == -1) {
-                if (bIsProcInfo == true) {
+            if (!tempString.contains("PID") && !tempString.contains("User"))
+            {
+                if (bIsProcInfo == true)
+                {
                     tempString = tempString.trim();
                     columns = tempString.split("[ ]+");
-                    if (columns.length == Length_ProcStat) {
+                    if (columns.length == 10)
                         PMUList.add(columns);
-                    }
                 }
-            } else {
+            }
+            else
+            {
                 bIsProcInfo = true;
             }
         }
@@ -76,26 +88,25 @@ public class ProcessMemoryUtil
         parseProcessRunningInfo(resultString);
     }
 
-    // 根据进程名获取CPU和内存信息
-    public String getMemInfoByName(String procName) {
-        String result = "";
+    // 根据进程名的内存信息 （获取CPU和内存信息）
+    public String[] getMemInfoByName(String procName) {
+        String[] result = null;
 
         String tempString = "";
         for (Iterator<String[]> iterator = PMUList.iterator(); iterator.hasNext();) {
             String[] item = (String[]) iterator.next();
             tempString = item[INDEX_NAME];
             if (tempString != null && tempString.equals(procName)) {
-                result = "CPU:" + item[INDEX_CPU]
-                        + "  Mem:" + item[INDEX_RSS];
+                result = item;
                 break;
             }
         }
         return result;
     }
 
-    // 根据进程ID获取CPU和内存信息
-    public String getMemInfoByPid(int pid) {
-        String result = "";
+    // 根据进程ID获取内存信息 （获取CPU和内存信息）
+    public String[] getMemInfoByPid(int pid) {
+        String[] result = null;
 
         String tempPidString = "";
         int tempPid = 0;
@@ -108,8 +119,7 @@ public class ProcessMemoryUtil
             }
             tempPid = Integer.parseInt(tempPidString);
             if (tempPid == pid) {
-                result = "CPU:" + item[INDEX_CPU]
-                        + "  Mem:" + item[INDEX_RSS];
+                result = item;
                 break;
             }
         }

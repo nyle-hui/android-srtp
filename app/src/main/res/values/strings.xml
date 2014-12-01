@@ -4,5 +4,6 @@
     <string name="app_name">srtp-nyle-xyh</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="no_use">暂无</string>
 
 </resources>

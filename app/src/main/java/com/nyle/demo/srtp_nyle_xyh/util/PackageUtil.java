@@ -1,8 +1,10 @@
-package Util;
+package com.nyle.demo.srtp_nyle_xyh.util;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+
+import com.nyle.demo.srtp_nyle_xyh.global.Global;
 
 import java.util.List;
 
@@ -16,7 +18,7 @@ public class PackageUtil
 
     public PackageUtil(Context context) {
         // 通过包管理器，检索所有的应用程序（包括卸载）与数据目录
-        PackageManager pm = context.getApplicationContext().getPackageManager();
+        PackageManager pm = Global.getPackageManager(context);
         allAppList = pm.getInstalledApplications(PackageManager.GET_UNINSTALLED_PACKAGES);
         pm.getInstalledPackages(0);
     }

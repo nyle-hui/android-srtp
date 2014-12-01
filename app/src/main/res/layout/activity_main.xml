@@ -1,57 +1,63 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#f5f5f5"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+<?xml version="1.0" encoding="utf-8"?>
 
-    <RelativeLayout android:background="#ffffff" android:layout_width="match_parent" android:layout_height="wrap_content">
-        <RadioGroup android:layout_marginBottom="20dp" android:layout_marginTop="20dp" android:id="@+id/radiogroup"  android:layout_width="wrap_content" android:layout_height="32dp" android:layout_centerHorizontal="true" android:background="@drawable/radio_btn_frame" android:orientation="horizontal">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:background="#ffffff"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+        <RelativeLayout android:background="#13B8D4" android:layout_width="match_parent" android:layout_height="120dp">
+            <RelativeLayout android:onClick="clickMenu" android:clickable="true" android:layout_marginTop="15dp" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <ImageView android:layout_marginTop="3dp" android:background="@drawable/icon_system" android:layout_width="13dp" android:layout_height="15dp"/>
+                <TextView android:text="System Assist" android:layout_marginLeft="35dp" android:textSize="18dp" android:textColor="#ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </RelativeLayout>
+           <RelativeLayout android:onClick="clickToRefresh" android:clickable="true" android:layout_marginTop="8dp" android:layout_marginRight="10dp" android:layout_width="40dp" android:layout_height="40dp" android:layout_alignParentRight="true">
+                <ImageView android:background="@drawable/icon_update" android:layout_centerInParent="true" android:layout_width="22dp" android:layout_height="20dp"/>
+            </RelativeLayout>
 
-            <RadioButton
-                android:id="@+id/menu_1"
-                android:layout_width="114dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:background="@drawable/radios_btn_left"
-                android:button="@null"
-                android:gravity="center"
-                android:text="进程"
-                android:checked="true"
-                android:textColor="@drawable/radio_btn_txt_color"/>
-            <ImageView android:layout_width="1dp" android:layout_height="match_parent" android:background="@color/btn_pressed_false_blue"/>
-            <RadioButton
-                android:id="@+id/menu_2"
-                android:text="任务"
-                android:gravity="center"
-                android:layout_gravity="center_vertical"
-                android:textColor="@drawable/radio_btn_txt_color"
-                android:background="@drawable/radios_btn_center"
-                android:layout_width="114dp"
-                android:layout_height="match_parent"
-                android:button="@null"/>
-            <ImageView android:layout_width="1dp" android:layout_height="match_parent" android:background="@color/btn_pressed_false_blue"/>
-            <RadioButton
-                android:id="@+id/menu_3"
-                android:layout_width="114dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/radios_btn_right"
-                android:button="@null"
-                android:gravity="center"
-                android:text="服务"
-                android:textColor="@drawable/radio_btn_txt_color"/>
-        </RadioGroup>
-    </RelativeLayout>
-
-    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
-        <ListView android:layout_weight="1" android:id="@+id/listview" android:divider="@null" android:layout_width="match_parent" android:layout_height="match_parent">
-
-        </ListView>
-        <RelativeLayout android:id="@+id/bottom_holder" android:layout_weight="0" android:background="#ffffff" android:layout_width="match_parent" android:layout_height="50dp">
-            <Button android:clickable="true" android:text="全部关闭" android:textColor="#ffffff" android:background="@drawable/button_select" android:layout_centerVertical="true" android:layout_marginLeft="30dp" android:layout_width="120dp" android:layout_height="33dp"/>
-            <Button android:clickable="true" android:text="刷新" android:textColor="#ffffff" android:background="@drawable/button_select" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:layout_marginRight="30dp" android:layout_width="120dp" android:layout_height="33dp"/>
+            <RadioGroup android:id="@+id/radiogroup" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="75dp" android:layout_alignParentBottom="true">
+                <RadioButton android:id="@+id/menu_process" android:text="进程" style="@style/radio_button" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1"/>
+                <ImageView android:background="#000000" android:layout_width="1px" android:layout_height="40dp" android:layout_gravity="center_vertical"/>
+                <RadioButton android:id="@+id/menu_task" android:text="任务" style="@style/radio_button" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1"/>
+                <ImageView android:background="#000000" android:layout_width="1px" android:layout_height="40dp" android:layout_gravity="center_vertical"/>
+                <RadioButton android:id="@+id/menu_service" android:text="服务" style="@style/radio_button" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1"/>
+            </RadioGroup>
+            <LinearLayout android:layout_alignParentBottom="true" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="75dp">
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1">
+                    <ImageView android:layout_marginTop="13dp" android:layout_centerHorizontal="true" android:background="@drawable/icon_process" android:layout_width="22dp" android:layout_height="25dp"/>
+                </RelativeLayout>
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1">
+                    <ImageView android:layout_marginTop="18dp" android:layout_centerHorizontal="true" android:background="@drawable/icon_task" android:layout_width="28dp" android:layout_height="22dp"/>
+                </RelativeLayout>
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1">
+                    <ImageView android:layout_marginTop="18dp" android:layout_centerHorizontal="true" android:background="@drawable/icon_service" android:layout_width="22dp" android:layout_height="22dp"/>
+                </RelativeLayout>
+            </LinearLayout>
         </RelativeLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1">
+                <ListView android:divider="@null" android:id="@+id/list_view" android:layout_width="match_parent" android:layout_height="match_parent">
+                </ListView>
+                <ListView android:visibility="gone" android:divider="@null" android:id="@+id/task_list_show" android:layout_width="match_parent" android:layout_height="match_parent">
+                </ListView>
+                <ListView android:visibility="gone" android:divider="@null" android:id="@+id/service_list_show" android:layout_width="match_parent" android:layout_height="match_parent">
+                </ListView>
+            </RelativeLayout>
+            <!--<RelativeLayout android:background="#13B8D4" android:layout_weight="0" android:layout_width="match_parent" android:layout_height="45dp">-->
+                <!--<Button android:background="#00ffffff" android:textSize="18dp" android:textColor="#ffffff" android:text="全部关闭" android:layout_width="match_parent" android:layout_height="match_parent"/>-->
+            <!--</RelativeLayout>-->
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+
+    <ImageView android:id="@+id/cover" android:onClick="clickToHideMenu" android:visibility="gone" android:clickable="true" android:layout_marginTop="52dp" android:background="#99808080" android:layout_width="match_parent" android:layout_height="match_parent"/>
+
+    <LinearLayout android:id="@+id/side_bar" android:layout_marginLeft="-140dp" android:orientation="vertical" android:background="#f5f5f5" android:layout_width="140dp" android:layout_height="match_parent" android:layout_marginTop="53dp">
+        <!--<Button android:onClick="clickTCancleAll" android:clickable="true" android:text="全部关闭" android:background="@drawable/file_list_background_selector" android:textSize="16dp" android:gravity="center" android:textColor="@drawable/file_list_text_selector" android:layout_width="match_parent" android:layout_height="45dp"/>-->
+        <!--<ImageView android:background="#aaaaaa" android:layout_width="match_parent" android:layout_height="1px"/>-->
+        <Button android:onClick="clickToShare" android:clickable="true" android:text="分享" android:background="@drawable/file_list_background_selector" android:textSize="16dp" android:gravity="center" android:textColor="@drawable/file_list_text_selector" android:layout_width="match_parent" android:layout_height="45dp"/>
+        <ImageView android:background="#aaaaaa" android:layout_width="match_parent" android:layout_height="1px"/>
+        <Button android:onClick="clickToAboutUs" android:clickable="true" android:text="关于我们" android:background="@drawable/file_list_background_selector" android:textSize="16dp" android:gravity="center" android:textColor="@drawable/file_list_text_selector" android:layout_width="match_parent" android:layout_height="45dp"/>
+        <ImageView android:background="#aaaaaa" android:layout_width="match_parent" android:layout_height="1px"/>
+    </LinearLayout>
+
+</RelativeLayout>

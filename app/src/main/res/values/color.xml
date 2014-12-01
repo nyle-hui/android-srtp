@@ -18,4 +18,12 @@
     <color name="btn_pressed_true_blue">#1fb0f3</color>
     <color name="btn_pressed_false_deepblue">#4682B4</color>
     <color name="btn_pressed_true_deepblue">#4682B4</color>
+    <color name="mem_view_background">#13B8D4</color>
+    <color name="mem_view_part">#D4D4D4</color>
+    <color name="mem_view_top">#4682B4</color>
+
+    <color name="text_normal">#ff000000</color>
+    <color name="text_pressed">#ffffffff</color>
+    <color name="background_pressed">#ff13B8D4</color>
+    <color name="background_normal">#ffffffff</color>
 </resources>

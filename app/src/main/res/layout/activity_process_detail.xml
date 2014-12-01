@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:background="#f5f5f5"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <RelativeLayout android:background="#13B8D4" android:layout_width="match_parent" android:layout_height="55dp">
+        <RelativeLayout android:onClick="clickToTurnBack" android:clickable="true" android:layout_marginLeft="15dp" android:layout_centerVertical="true" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:background="@drawable/main_button_turn_back" android:layout_centerVertical="true" android:layout_width="10dp" android:layout_height="17dp"/>
+            <TextView android:id="@+id/process_name_show" android:text="" android:layout_marginLeft="20dp" android:textSize="18dp" android:textColor="#ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </RelativeLayout>
+    </RelativeLayout>
+  <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+      <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+          <RelativeLayout android:background="#ffffff" android:layout_width="match_parent" android:layout_height="32dp">
+              <ImageView android:background="#bbbbbb" android:layout_width="match_parent" android:layout_height="1px"/>
+                <TextView android:text="内存" android:layout_marginLeft="10dp" android:textColor="#000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true"/>
+              <ImageView android:background="#bbbbbb" android:layout_alignParentBottom="true" android:layout_width="match_parent" android:layout_height="1px"/>
+          </RelativeLayout>
+          <RelativeLayout android:layout_width="match_parent" android:layout_height="300dp">
+            <com.nyle.demo.srtp_nyle_xyh.view.MemoryShowView android:id="@+id/memory_show" android:layout_width="240dp" android:layout_height="240dp" android:layout_centerInParent="true"/>
+          </RelativeLayout>
+          <RelativeLayout android:background="#ffffff" android:layout_width="match_parent" android:layout_height="32dp">
+              <ImageView android:background="#bbbbbb" android:layout_width="match_parent" android:layout_height="1px"/>
+              <TextView android:text="进程名称" android:layout_marginLeft="10dp" android:textColor="#000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true"/>
+              <ImageView android:background="#bbbbbb" android:layout_alignParentBottom="true" android:layout_width="match_parent" android:layout_height="1px"/>
+          </RelativeLayout>
+          <RelativeLayout android:layout_width="match_parent" android:paddingTop="10dp" android:paddingBottom="10dp" android:layout_height="wrap_content">
+              <TextView android:id="@+id/name_show" android:text="" android:textSize="20dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textColor="#000000" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+          </RelativeLayout>
+          <RelativeLayout android:background="#ffffff" android:layout_width="match_parent" android:layout_height="32dp">
+              <ImageView android:background="#bbbbbb" android:layout_width="match_parent" android:layout_height="1px"/>
+              <TextView android:text="版权信息" android:layout_marginLeft="10dp" android:textColor="#000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true"/>
+              <ImageView android:background="#bbbbbb" android:layout_alignParentBottom="true" android:layout_width="match_parent" android:layout_height="1px"/>
+          </RelativeLayout>
+          <RelativeLayout android:layout_width="match_parent" android:paddingTop="10dp" android:paddingBottom="10dp" android:layout_height="wrap_content">
+              <TextView android:id="@+id/version_info" android:text="版本 : 暂无" android:textSize="20dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textColor="#000000" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+          </RelativeLayout>
+          <RelativeLayout android:background="#ffffff" android:layout_width="match_parent" android:layout_height="32dp">
+              <ImageView android:background="#bbbbbb" android:layout_width="match_parent" android:layout_height="1px"/>
+              <TextView android:text="安装目录" android:layout_marginLeft="10dp" android:textColor="#000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true"/>
+              <ImageView android:background="#bbbbbb" android:layout_alignParentBottom="true" android:layout_width="match_parent" android:layout_height="1px"/>
+          </RelativeLayout>
+          <RelativeLayout android:layout_width="match_parent" android:paddingTop="10dp" android:paddingBottom="10dp" android:layout_height="wrap_content">
+              <TextView android:id="@+id/install_dir" android:text="无法获得" android:textSize="20dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textColor="#000000" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+          </RelativeLayout>
+          <RelativeLayout android:background="#ffffff" android:layout_width="match_parent" android:layout_height="32dp">
+              <ImageView android:background="#bbbbbb" android:layout_width="match_parent" android:layout_height="1px"/>
+              <TextView android:text="操作权限" android:layout_marginLeft="10dp" android:textColor="#000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true"/>
+              <ImageView android:background="#bbbbbb" android:layout_alignParentBottom="true" android:layout_width="match_parent" android:layout_height="1px"/>
+          </RelativeLayout>
+          <RelativeLayout android:layout_width="match_parent" android:paddingTop="10dp" android:paddingBottom="10dp" android:layout_height="wrap_content">
+              <TextView android:id="@+id/authority" android:text="未获得" android:textSize="13dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textColor="#000000" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+          </RelativeLayout>
+          <RelativeLayout android:background="#13B8D4" android:layout_weight="0" android:layout_width="match_parent" android:layout_height="45dp">
+              <Button android:onClick="clickToCancle" android:clickable="true" android:background="#00ffffff" android:textSize="18dp" android:textColor="#ffffff" android:text="强制结束" android:layout_width="match_parent" android:layout_height="match_parent"/>
+          </RelativeLayout>
+      </LinearLayout>
+  </ScrollView>
+</LinearLayout>
