@@ -26,7 +26,15 @@
               <ImageView android:background="#bbbbbb" android:layout_alignParentBottom="true" android:layout_width="match_parent" android:layout_height="1px"/>
           </RelativeLayout>
           <RelativeLayout android:layout_width="match_parent" android:paddingTop="10dp" android:paddingBottom="10dp" android:layout_height="wrap_content">
-              <TextView android:id="@+id/name_show" android:text="" android:textSize="20dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textColor="#000000" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+              <TextView android:id="@+id/name_show" android:text="未获得" android:textSize="13dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textColor="#000000" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+          </RelativeLayout>
+          <RelativeLayout android:background="#ffffff" android:layout_width="match_parent" android:layout_height="32dp">
+              <ImageView android:background="#bbbbbb" android:layout_width="match_parent" android:layout_height="1px"/>
+              <TextView android:text="操作权限" android:layout_marginLeft="10dp" android:textColor="#000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true"/>
+              <ImageView android:background="#bbbbbb" android:layout_alignParentBottom="true" android:layout_width="match_parent" android:layout_height="1px"/>
+          </RelativeLayout>
+          <RelativeLayout android:layout_width="match_parent" android:paddingTop="10dp" android:paddingBottom="10dp" android:layout_height="wrap_content">
+              <TextView android:id="@+id/authority" android:text="未获得" android:textSize="13dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textColor="#000000" android:layout_width="match_parent" android:layout_height="wrap_content"/>
           </RelativeLayout>
           <RelativeLayout android:background="#ffffff" android:layout_width="match_parent" android:layout_height="32dp">
               <ImageView android:background="#bbbbbb" android:layout_width="match_parent" android:layout_height="1px"/>
@@ -43,14 +51,6 @@
           </RelativeLayout>
           <RelativeLayout android:layout_width="match_parent" android:paddingTop="10dp" android:paddingBottom="10dp" android:layout_height="wrap_content">
               <TextView android:id="@+id/install_dir" android:text="无法获得" android:textSize="20dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textColor="#000000" android:layout_width="match_parent" android:layout_height="wrap_content"/>
-          </RelativeLayout>
-          <RelativeLayout android:background="#ffffff" android:layout_width="match_parent" android:layout_height="32dp">
-              <ImageView android:background="#bbbbbb" android:layout_width="match_parent" android:layout_height="1px"/>
-              <TextView android:text="操作权限" android:layout_marginLeft="10dp" android:textColor="#000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true"/>
-              <ImageView android:background="#bbbbbb" android:layout_alignParentBottom="true" android:layout_width="match_parent" android:layout_height="1px"/>
-          </RelativeLayout>
-          <RelativeLayout android:layout_width="match_parent" android:paddingTop="10dp" android:paddingBottom="10dp" android:layout_height="wrap_content">
-              <TextView android:id="@+id/authority" android:text="未获得" android:textSize="13dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textColor="#000000" android:layout_width="match_parent" android:layout_height="wrap_content"/>
           </RelativeLayout>
           <RelativeLayout android:background="#13B8D4" android:layout_weight="0" android:layout_width="match_parent" android:layout_height="45dp">
               <Button android:onClick="clickToCancle" android:clickable="true" android:background="#00ffffff" android:textSize="18dp" android:textColor="#ffffff" android:text="强制结束" android:layout_width="match_parent" android:layout_height="match_parent"/>

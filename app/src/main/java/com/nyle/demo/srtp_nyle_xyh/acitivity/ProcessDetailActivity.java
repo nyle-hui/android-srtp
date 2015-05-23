@@ -53,14 +53,15 @@ public class ProcessDetailActivity extends Activity
         {
             return;
         }
+
         if (detailProgram.getProcessName() == null) processNameShow.setText("暂无");
         else TextUtil.textviewContentSet(detailProgram.getProcessName(), processNameShow);
 
         if (detailProgram.getVersionName() == null) processNameShow.setText("暂无");
         else TextUtil.textviewContentSet("版本: " + detailProgram.getVersionName(), versionInfoShow);
 
-        TextUtil.textviewContentSet(detailProgram.getFirstInstallTime(), installDirShow);
-        TextUtil.textviewContentSet(detailProgram.getServices(), authorityShow);
+        TextUtil.textviewContentSet(detailProgram.getDataDir(), installDirShow);
+        TextUtil.textviewContentSet(detailProgram.getUserPermissionsFormat(), authorityShow);
     }
 
     private void getDetailProgram()
